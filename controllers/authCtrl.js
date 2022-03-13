@@ -1,4 +1,5 @@
 const {Users} = require('../models/user')
+const {PersonalData} = require('../models/personalData')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -40,6 +41,7 @@ const authCtrl = {
 
             })
 
+
             console.log(newUser);
 
 
@@ -58,8 +60,20 @@ const authCtrl = {
                 maxAge: 30 * 24 * 60 * 60 * 1000 // 30days
             });
 
+
             await newUser.save()
 
+            var pd = {
+                "type":type,
+                "username":username,
+                "address":"",
+                "gender":"",
+                "subjects":"{}",
+                "certificate":[],
+                "courses":[]
+            }
+            var pdS = new PersonalData(pd);
+            await pdS.save();
             res.status(200).json({
                 success: true,
                 msg: 'Register Success!',
@@ -74,6 +88,30 @@ const authCtrl = {
             console.log("register err");
             console.log(err);
             return res.status(500).json({ success: false, msg: "Server error occurred, Contact owner" })
+        }
+    },
+    updateinfo: async(req,res) => {
+        try {
+            if(req.user){
+                // yaha par information leni hai aur update karani hai
+                var d = req.body;
+                var userName = d.username;
+                const user_name = await Users.findOne({ username: userName })
+                if(!user_name){       
+                    return res.status(400).json({ success: false, msg: "session expries"})
+                }
+                else{
+                    const a = await PersonalData.updateOne({username:d.username},d);
+                
+                }
+
+                return res.status(400).json({ success: true, msg: "information updated"})
+            }
+            else{
+                return res.status(400).json({ success: false, msg: "log in session expired! Please log in again..."})
+            }
+        } catch (err) {
+            return res.status(500).json({ msg: err.message })
         }
     },
 

@@ -1,4 +1,4 @@
-var User = require('../models/user');
+var {Users} = require('../models/user');
 const jwt = require('jsonwebtoken')
 
 const auth = async(req, res, next) => {
@@ -8,7 +8,7 @@ const auth = async(req, res, next) => {
         if (token) {
             const decoded = jwt.verify(token, process.env.REFRESH_TOKEN_SECRET)
             if (decoded) {
-                const user = await User.findOne({ _id: decoded.id })
+                const user = await Users.findOne({ _id: decoded.id })
                 req.user = user
             }
             

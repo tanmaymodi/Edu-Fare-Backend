@@ -4,6 +4,7 @@ const personalData = new mongoose.Schema({
     type:{
         type:String,
         required: true
+        
     },
     username: {
         type: String,
@@ -22,7 +23,7 @@ const personalData = new mongoose.Schema({
     courses: {
         type: [{
             courseId:Number,
-            courseNmae:String
+            courseName:String
         }]
     },
 

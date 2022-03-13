@@ -15,6 +15,9 @@ router.route('/login')
         });
     });
 
+router.route('/updateinfo')
+    .post(auth, authCtrl.updateinfo);
+
 router.route('/register')
     .post(auth, authCtrl.register);
 
