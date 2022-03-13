@@ -1,1 +1,1 @@
-npm i bcrypt body-parser cookie-parser cors dompurify dotenv ejs express express-ejs-layouts express-session http jsdom jsonwebtoken marked  mongoose morgan toast-notification-alert
+npm i bcrypt body-parser cookie-parser cors dompurify dotenv ejs express express-ejs-layouts express-session http jsdom jsonwebtoken marked  mongoose morgan toast-notification-alert nodemon

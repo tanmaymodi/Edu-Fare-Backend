@@ -1,18 +1,18 @@
 const mongoose = require('mongoose')
 
 
-const userSchema = new mongoose.Schema({
+const studentDetails = new mongoose.Schema({
     fullname: {
         type: String,
         required: true,
         trim: true,
-        maxlength: 25
+        maxlength: 30
     },
     username: {
         type: String,
         required: true,
         trim: true,
-        maxlength: 25,
+        maxlength: 14,
         unique: true
     },
     email: {
@@ -21,18 +21,69 @@ const userSchema = new mongoose.Schema({
         trim: true,
         unique: true
     },
+    phone: {
+        type: Number,
+        required: true
+    },
     password: {
         type: String,
         required: true
     },
-    avatar: {
+    gender: {
         type: String,
-        default: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png'
+        required: true
+    },
+    class: {
+        type: Number,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
     },
 
 }, {
     timestamps: true
-})
+});
+
+const tutorDetails = new mongoose.Schema({
+    fullname: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 30
+    },
+    username: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 14,
+        unique: true
+    },
+    email: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true
+    },
+    phone: {
+        type: Number,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    subjects: {
+        type: Object,
+        required: true
+    }
+
+}, {
+    timestamps: true
+});
 
 
-module.exports = mongoose.model('user', userSchema)
+const StudentDetails = mongoose.model('StudentDetails', studentDetails);
+const TutorDetails = mongoose.model('TutorDetails', tutorDetails);
+module.exports = {StudentDetails,TutorDetails};
