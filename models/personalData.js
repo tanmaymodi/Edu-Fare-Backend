@@ -1,31 +1,23 @@
 const mongoose = require('mongoose')
 
-const studentPersonalData = new mongoose.Schema({
+const personalData = new mongoose.Schema({
+    type:{
+        type:String,
+        required: true
+    },
     username: {
         type: String,
         required: true,
     },
+    address: String,
+    gender: String,
+    school: String,
+    subjects: Object,
     certificate:{
         type:[{
             name: String,
             url: String
         }],
-    },
-    cousrseData:{
-        type:[{
-            id:Number,
-            currentCredits:Number,
-            isPass:Boolean
-        }]
-    }
-}, {
-    timestamps: true
-});
-
-const tutorPersonalData = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true,
     },
     courses: {
         type: [{
@@ -39,6 +31,5 @@ const tutorPersonalData = new mongoose.Schema({
 });
 
 
-const StudentPersonalData = mongoose.model('StudentPersonalData', studentPersonalData);
-const TutorPersonalData = mongoose.model('TutorPersonalData', tutorPersonalData);
-module.exports = {StudentPersonalData,TutorPersonalData};
+const PersonalData = mongoose.model('PersonalData', personalData);
+module.exports = {PersonalData};
