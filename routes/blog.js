@@ -39,6 +39,10 @@ router.route('/add')
         if(!req.user){
             return res.redirect('/');
         }
+        console.log(req.user);
+        if(req.user.type == "Student"){
+            return res.status(400).json({ success: false, msg: "Access Denied for students"})
+        }
         return res.render('addblog', {
             isAuthenticated: req.user ? true : false
         });
@@ -67,6 +71,9 @@ router.route('/expand/:id')
 router.route("/edit/:id")
 .get(auth, async(req, res) => {
     try{
+        if(req.user.type == "Student"){
+            return res.status(400).json({ success: false, msg: "Access Denied for students"})
+        }
         console.log("edit blog get ", req.params.id);
         var y = req.params.id;
         var blog = await Blog.findOne({ mid: req.params.id });
@@ -83,7 +90,13 @@ router.route("/edit/:id")
 .post(auth, blog.edit);
 
 router.route('/remove/:id')
-.get(auth, blog.remove)
+.get(auth,(req,res)=>{
+    if(req.user.type == "Student"){
+        return res.status(400).json({ success: false, msg: "Access Denied for students"})
+    }
+    else blog.remove;
+    
+})
 
 
 module.exports = router;
