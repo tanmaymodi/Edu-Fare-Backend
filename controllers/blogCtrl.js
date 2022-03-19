@@ -6,17 +6,21 @@ var marked = require('marked');
 
 var blogCtrl = {
     add: async(req, res) => {
+        var d = req.body;
+        console.log(d);
         try{
-            // console.log("blog add -- ", req.body, req.user);
-            var shtml = domPurify.sanitize(marked.parse(req.body.body));
-            console.log(shtml);
+           // console.log("blog add -- ", req.body, req.user);
+            var shtml = domPurify.sanitize(marked.parse(req.body.explanation));
+            //console.log(shtml);
             var blog = new Blog({
-                title: req.body.title,
-                username: req.user.username,
+                cid: req.body.cid,
+                heading: req.body.heading,
                 description: req.body.description,
-                body: req.body.body,
-                mid: req.user.username + "-" + (parseInt(Date.now() / 60000).toString()),
+                explanation: req.body.explanation,
+                images: req.body.images,
+                username: req.user.username,
                 sanitizedHtml: shtml,
+                mid: req.user.username + "-" + (parseInt(Date.now() / 60000).toString()),
                 did: parseInt(Date.now() / 60000)
             });
             console.log("new blog -- ", blog);

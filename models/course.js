@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const courseData= new Schema({
     id:{
-        type: Number,
+        type: String,
         required: [true, "course ID required"]
     },
     name:{
@@ -14,25 +14,16 @@ const courseData= new Schema({
         type: String,
     },
     passingCredits:Number,
-    content:{
+    content:Array,
+    quiz:{
         type:[{
-            lessonNmae:String,
-            credits:Number,
-            objectives:String,
-            obtainedCredits:Number,
-            isPass: Boolean,
-            articles: {
-                aid:Number
-            },
-            quiz:{
-                question:String,
-                answer:String,
-                correctAnswer:String,
-                marks:Number,
-                obtainedMarks:Number
-            }
+            question:String,
+            options:Array,
+            ca:String,
+            marks:Number
         }]
-    },
+    }
+
    
 });
 

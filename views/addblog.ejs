@@ -1,14 +1,22 @@
 <div class="form-group">
-    <label for="title">Title</label>
-    <input class="form-control" type="text" name="title" id="title" placeholder="Enter Title" />
+    <label for="heading">heading</label>
+    <input class="form-control" type="text" name="heading" id="heading" placeholder="Enter Heading" />
+</div>
+<div class="form-group">
+    <label for="cid">Course ID</label>
+    <input class="form-control" type="text" name="cid" id="cid" placeholder="Enter Course ID" />
 </div>
 <div class="form-group">
     <label for="description">Description</label>
     <input class="form-control" type="text" name="description" id="description" placeholder="Enter Description" />
 </div>
 <div class="form-group">
-    <label for="body">Body</label>
-    <textarea name="editor" class="form-control" id="body" rows="8"></textarea>
+    <label for="explanation">explanation</label>
+    <textarea class="form-control" type="text" name="explanation" id="explanation"></textarea>
+</div>
+<div class="form-group">
+    <label for="images">images</label>
+    <input class="form-control" type="text" name="images" id="images" placeholder="Enter image URL" />
 </div>
 <button class="btn btn-primary" onclick="addblog()">Submit</button>
 
@@ -17,9 +25,12 @@
 <script>
     var addblog = () => {
         var data = {
-            title: document.getElementById('title').value,
+            cid: document.getElementById('cid').value,
+            heading: document.getElementById('heading').value,
             description: document.getElementById('description').value,
-            body: document.getElementById('body').value
+            explanation: document.getElementById('explanation').value,
+            images: document.getElementById('images').value,
+
         };
         console.log(data);
         $.ajax({

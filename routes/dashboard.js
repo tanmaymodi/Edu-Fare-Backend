@@ -1,6 +1,7 @@
 var router = require('express').Router();
 var auth = require('../middlewares/auth');
-
+var PD = require('../models/personalData');
+var pd = require('../controllers/dashCtrl')
 
 router.route('/')
     .get(auth, async(req, res) => {

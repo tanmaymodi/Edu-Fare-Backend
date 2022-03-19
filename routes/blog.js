@@ -6,7 +6,6 @@ var Blog = require('../models/blog');
 router.route('/')
 .get(auth, async(req, res) => {
     try{
-        
         if(!req.user){
             return res.redirect('/');
         }
@@ -40,7 +39,7 @@ router.route('/add')
             return res.redirect('/');
         }
         console.log(req.user);
-        if(req.user.type == "Student"){
+        if(req.user.type == "student"){
             return res.status(400).json({ success: false, msg: "Access Denied for students"})
         }
         return res.render('addblog', {

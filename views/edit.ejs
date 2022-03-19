@@ -1,16 +1,22 @@
 <div class="container">
-    <h1> Edit blog </h1>
+    <h1> Edit Article </h1>
     <div class="row">
 
         <form action="/blog/edit/<%=x%>" method="POST">
+            <div class="form-group">
+                <label for="user">Heading:</label>
+                <input class="form-control" type="text" name="heading" value="<%= blog.heading %>" id="heading">
+            </div>
 
             <div class="form-group">
-                <label for="user">Title:</label>
-                <input class="form-control" type="text" name="title" value="<%= blog.title %>" id="title">
+                <label for="user">Course ID:</label>
+                <input class="form-control" type="text" name="cid" placeholder="<%= blog.cid %>" id="cid" disabled>
             </div>
+
             <div class="form-group">
                 <label for="user">By:</label>
-                <input class="form-control" type="text" name="username" placeholder="<%= blog.username %>" id="username" disabled>
+                <input class="form-control" type="text" name="username" placeholder="<%= blog.username %>" id="username"
+                    disabled>
             </div>
 
             <div class="form-group">
@@ -19,7 +25,17 @@
             </div>
 
             <div class="form-group">
-                <textarea class="form-control" rows="10" cols="100" name="body" id="bbody" placeholder=""><%=blog.body%></textarea></div>
+                <label for="user">explanation:</label>
+                <textarea class="form-control" type="text" name="explanation" value="<%= blog.explanation %>"
+                    id="explanation"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="user">Image URL:</label>
+                <input class="form-control" type="text" name="images" value="<%= blog.images %>" id="images">
+            </div>
+
+
             <a class="btn btn-secondary" href="/"> Cancel</a>
             <button class="btn btn-primary" type="submit"> Submit</button>
 

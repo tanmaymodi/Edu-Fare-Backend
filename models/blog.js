@@ -8,11 +8,11 @@ const dompurifier = dompurify(new JSDOM().wndow)
 const Schema = mongoose.Schema;
 
 const blogSchema = new Schema({
-    title: {
+    cid:{
         type: String,
         required: true
     },
-    username: {
+    heading: {
         type: String,
         required: true
     },
@@ -20,7 +20,14 @@ const blogSchema = new Schema({
         type: String,
         required: true
     },
-    body: {
+    explanation: {
+        type: String,
+        required: true
+    },
+    images: {
+        type: String
+    },
+    username: {
         type: String,
         required: true
     },

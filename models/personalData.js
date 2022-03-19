@@ -13,7 +13,7 @@ const personalData = new mongoose.Schema({
     address: String,
     gender: String,
     school: String,
-    subjects: Object,
+    subjects: Array,
     certificate:{
         type:[{
             name: String,
@@ -23,7 +23,9 @@ const personalData = new mongoose.Schema({
     courses: {
         type: [{
             courseId:Number,
-            courseName:String
+            courseName:String,
+            marks:Number,
+            oMarks:Number
         }]
     },
 
