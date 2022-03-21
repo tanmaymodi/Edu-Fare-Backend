@@ -1,0 +1,45 @@
+<div class="container">
+    <h1> Hello, <% pde.username %> </h1>
+    <div class="row">
+
+        <form action="/dashboard/edit/" method="POST">
+
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <input class="form-control" type="text" name="type" placeholder="<%= pde.type %>" id="type" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="Username">Name:</label>
+                <input class="form-control" type="text" name="username" placeholder="<%= pde.username %>" id="username"
+                    disabled>
+            </div>
+
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input class="form-control" type="text" name="address" value="<%= pde.address %>" id="address">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input class="form-control" type="text" name="gender" placeholder="<%= pde.gender %>" id="gender">
+            </div>
+
+
+            <div class="form-group">
+                <label for="school">School Name:</label>
+                <input class="form-control" type="text" name="school" placeholder="<%= pde.school %>" id="cid">
+            </div>
+
+            <div class="form-group">
+                <label for="subjects">Subjects:</label>
+                <input class="form-control" type="text" name="subjects" placeholder="<%= pde.subjects %>" id="subjects">
+            </div>
+
+            <a class="btn btn-secondary" href="/"> Cancel</a>
+            <button class="btn btn-primary" type="submit"> Submit</button>
+
+        </form>
+    </div>
+</div>

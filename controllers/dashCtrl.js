@@ -1,4 +1,4 @@
-var PD = require('../models/personalData');
+var {PersonalData} = require('../models/personalData');
 var createDom = require("dompurify");
 var { JSDOM } = require("jsdom");
 var domPurify = createDom(new JSDOM().window);
@@ -33,22 +33,23 @@ var dashCtrl = {
     // },
 
     edit: async(req, res) => {
+        console.log("__________Updating Dash_________\n"+newData);
         try{
             if(!req.user){
                 return res.redirect('/auth/login');
             }
             //console.log("edit blog post -- ", req.params.id);
-            var previousData = await PD.findOne({username: req.user.username});
+            var previousData = await PersonalData.findOne({username: req.user.username});
             var newData = req.body;
+            
             // if(req.user.username !== blog.username){
             //     return res.json({success: false, msg: "Access Denied"});
             // }
             //var shtml = domPurify.sanitize(marked.parse(req.body.body));
 
-            await PD.updateOne(previousData, {$set: newData});
-
+            await PersonalData.updateOne(previousData, {$set: newData});
             console.log("Profile updated");
-            return res.redirect('/');
+            return res.redirect('../');
         } catch (err) {
             console.log("edit profile err -- ", req.user.username, err);
             return res.send(err);

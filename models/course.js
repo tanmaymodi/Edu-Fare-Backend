@@ -1,5 +1,12 @@
-const mongoose = require9('mongoose');
+const mongoose = require('mongoose');
+const dompurify = require('dompurify');
+const {JSDOM} = require('jsdom');
+const marked = require('marked');
+
+const dompurifier = dompurify(new JSDOM().wndow)
+
 const Schema = mongoose.Schema;
+
 
 const courseData= new Schema({
     id:{
@@ -26,5 +33,6 @@ const courseData= new Schema({
 
    
 });
+const Course = mongoose.model('Course', courseData);
 
-module.exports = mongoose.model("Course",courseData);
+module.exports = Course;
