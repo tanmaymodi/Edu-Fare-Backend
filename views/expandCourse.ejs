@@ -1,0 +1,48 @@
+<style>
+    #sbody img {
+        max-width: 100%;
+        max-height: 100vh;
+    }
+</style>
+
+<!-- <div class="btn btn-warning">
+    <a href="/blog/add"> Add blog</a>
+</div> -->
+
+
+
+<div class="container" style="margin: 50px auto;background-color: rgb(253, 240, 220);padding:20px">
+
+
+    <h1>
+        <%= course.name %>
+    </h1>
+
+    <div id="blog-status"> Course ID :
+        <%= course.cid %>
+
+    </div>
+    <div id="blog-status"> Course Duration :
+        <%= course.duration %>
+    </div>
+    <div id="description" style="margin: 5px">
+        <%= course.description %>
+    </div>
+
+    <div>
+        <% for(let i=0;i<blog.length;i++){ %>
+        <div>
+            <div class="row">
+                <div class="col">
+                    <a href="/blog/expand/<%= blog[i]['mid'] %>"><%= blog[i]['heading'] %> </a>
+                </div>
+                <div class="col">
+                    <%= blog[i]['description'] %>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+
+</div>

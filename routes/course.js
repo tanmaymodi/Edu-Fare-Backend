@@ -1,7 +1,9 @@
 var router = require('express').Router();
 var auth = require('../middlewares/auth');
-var blog = require('../controllers/blogCtrl');
+var course = require('../controllers/courseCtrl');
+var Course = require('../models/course');
 var Blog = require('../models/blog');
+
 
 router.route('/')
 .get(auth, async(req, res) => {
@@ -16,17 +18,17 @@ router.route('/')
         var bop = 3;
         
         var time = parseInt(Date.now() / 60000);
-        var blogs = await Blog.find({});
-        blogs.reverse();
-        var total = blogs.length;
+        var courses = await Course.find({});
+        courses.reverse();
+        var total = courses.length;
         var last = Math.floor(total/bop) + 1 - ((total%bop == 0) ? 1 : 0);
         page = Math.min(last, page);
         page = Math.max(1, page);
         page--;
-        blogs = blogs.slice(page*bop, Math.min(total, (page+1)*bop));
-        return res.render('blog', {blogs: blogs, time: time, cuser: req.user.username, page: page+1, last: last, isAuthenticated: req.user ? true : false});
+        courses = courses.slice(page*bop, Math.min(total, (page+1)*bop));
+        return res.render('course', {course: courses, time: time, cuser: req.user.username, page: page+1, last: last, isAuthenticated: req.user ? true : false});
     } catch (err) {
-        console.log("blog home error", err);
+        console.log("course home error", err);
         return res.send(err);
     }
 });
@@ -42,26 +44,27 @@ router.route('/add')
         if(req.user.type == "student"){
             return res.status(400).json({ success: false, msg: "Access Denied for students"})
         }
-        return res.render('addblog', {
+        return res.render('addCourse', {
             isAuthenticated: req.user ? true : false
         });
     } catch (err) {
-        console.log("blog add error", err);
+        console.log("course add error", err);
         return res.send(err);
     }
 })
-.post(auth, blog.add);
+.post(auth, course.add);
 
 router.route('/expand/:id')
 .get(auth, async(req, res) => {
     try{
-        console.log("blog expand", req.params.id);
-        var time = parseInt(Date.now() / 60000);
-        
-        var blog = await Blog.findOne({ mid: req.params.id });
-        res.render("expand", { name: req.user.username, blog: blog, time: time, isAuthenticated: req.user ? true : false });
+        console.log("course expand", req.params.id);
+        var core = await Course.findOne({ cid: req.params.id });
+        var id = req.params.id.toString();
+        var blogs = await Blog.find({cid: id});
+        console.log(blogs);
+        res.render("expandCourse", { course: core, blog:blogs, isAuthenticated: req.user ? true : false });
     } catch (err){
-        console.log("blog expand error");
+        console.log("course expand error");
         return res.send(err);
     }
         
@@ -69,32 +72,28 @@ router.route('/expand/:id')
 
 router.route("/edit/:id")
 .get(auth, async(req, res) => {
+    console.log("edit course get ", req.body);
     try{
-        if(req.user.type == "Student"){
+        if(req.user.type == "student"){
             return res.status(400).json({ success: false, msg: "Access Denied for students"})
         }
-        console.log("edit blog get ", req.params.id);
-        var y = req.params.id;
-        var blog = await Blog.findOne({ mid: req.params.id });
+        
+        var blog = await Course.findOne({ cid: req.parama.id });
         if (req.user) {
-            res.render("edit", { blog: blog, x: y, isAuthenticated: req.user ? true : false });
+            res.render("editCourse", { course: blog, isAuthenticated: req.user ? true : false });
         } else {
             res.redirect("/auth/login");
         }
     } catch (err) {
-        console.log("edit blog err -- ", req.params.id, err);
+        console.log("edit course err -- ", req.body.cid, err);
         return res.send(err);
     }
 })
-.post(auth, blog.edit);
+.post(auth, course.edit);
 
 router.route('/remove/:id')
 .get(auth,(req,res)=>{
-    if(req.user.type == "Student"){
-        return res.status(400).json({ success: false, msg: "Access Denied for students"})
-    }
-    else blog.remove;
-    
+     course.remove;
 })
 
 

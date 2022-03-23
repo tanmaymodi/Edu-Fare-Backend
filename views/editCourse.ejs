@@ -1,0 +1,32 @@
+<div class="container">
+    <h1> Course Article </h1>
+    <div class="row">
+
+        <form action="/course/edit/" method="POST">
+            <div class="form-group">
+                <label for="user">Course ID:</label>
+                <input class="form-control" type="text" name="cid" value="<%= course.cid %>" id="cid">
+            </div>
+
+            <div class="form-group">
+                <label for="user">Name:</label>
+                <input class="form-control" type="text" name="name" placeholder="<%= course.name %>" id="name">
+            </div>
+
+            <div class="form-group">
+                <label for="user">Duration:</label>
+                <input class="form-control" type="text" name="duration" value="<%= course.duration %>" id="duration">
+            </div>
+
+            <div class="form-group">
+                <label for="user">Description:</label>
+                <textarea class="form-control" type="text" name="description" value="<%= course.description %>"
+                    id="description"></textarea>
+            </div>
+
+            <a class="btn btn-secondary" href="/"> Cancel</a>
+            <button class="btn btn-primary" type="submit"> Submit</button>
+
+        </form>
+    </div>
+</div>

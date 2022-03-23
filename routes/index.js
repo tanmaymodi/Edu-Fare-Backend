@@ -8,7 +8,7 @@ router.route('/')
             if(req.user){
                 return res.redirect('/dashboard');
             }
-            return res.render('index', {
+            return res.render('index1', {
                 isAuthenticated: req.user ? true : false
             });
         } catch (err) {

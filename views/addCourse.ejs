@@ -1,0 +1,52 @@
+<div class="form-group">
+    <label for="cid">Course ID</label>
+    <input class="form-control" type="text" name="cid" id="cid" placeholder="Enter Course ID" />
+</div>
+
+<div class="form-group">
+    <label for="cid">Name</label>
+    <input class="form-control" type="text" name="name" id="name" placeholder="Name of Course" />
+</div>
+
+<div class="form-group">
+    <label for="description">duratino</label>
+    <input class="form-control" type="text" name="duration" id="duration" placeholder="Enter duratino" />
+</div>
+<div class="form-group">
+    <label for="explanation">description</label>
+    <textarea class="form-control" type="text" name="description" id="description" rows="10"></textarea>
+</div>
+<button class="btn btn-primary" onclick="addblog()">Submit</button>
+
+
+
+<script>
+    var addblog = () => {
+        var data = {
+            cid: document.getElementById('cid').value,
+            name: document.getElementById('name').value,
+            duration: document.getElementById('duration').value,
+            description: document.getElementById('description').value,
+
+        };
+        console.log(document.getElementById('description').textContent);
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: '/course/add',
+            data: data,
+            success: (res) => {
+                console.log("Course added", res);
+                if (res.success) {
+                    window.location.replace('/course');
+                } else
+                    window.alert(res.err);
+
+            },
+            error: (err) => {
+                console.log("Error", err);
+                window.alert(err);
+            }
+        })
+    }
+</script>

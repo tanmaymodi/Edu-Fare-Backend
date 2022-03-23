@@ -38,6 +38,7 @@ app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
 app.use('/dashboard', require('./routes/dashboard'));
 app.use('/blog', require('./routes/blog'));
+app.use('/course', require('./routes/course'));
 
 app.listen(PORT, () => {
     console.log("Server started at port", PORT);

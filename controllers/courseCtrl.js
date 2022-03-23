@@ -7,27 +7,27 @@ var marked = require('marked');
 var courseCtrl = {
     add: async(req, res) => {
         var d = req.body;
+        console.log("Course Data is ----> ");
         console.log(d);
         try{
            // console.log("blog add -- ", req.body, req.user);
-            var shtml = domPurify.sanitize(marked.parse(req.body.explanation));
+            //var shtml = domPurify.sanitize(marked.parse(req.body.));
+            var ck = await Course.findOne({cid:req.body.cid});
+            if(ck){
+                return res.send({success:false,err:"course id already exits"});
+            }
             //console.log(shtml);
-            var blog = new Blog({
+            var course = new Course({
                 cid: req.body.cid,
-                heading: req.body.heading,
-                description: req.body.description,
-                explanation: req.body.explanation,
-                images: req.body.images,
-                username: req.user.username,
-                sanitizedHtml: shtml,
-                mid: req.user.username + "-" + (parseInt(Date.now() / 60000).toString()),
-                did: parseInt(Date.now() / 60000)
+                name: req.body.name,
+                duration: req.body.duration,
+                description: req.body.description,  
             });
-            console.log("new blog -- ", blog);
-            await blog.save();
+            console.log("new course -- ", course);
+            await course.save();
             return res.send({success: true});
         } catch (err){
-            console.log("post add blog err -- ", err);
+            console.log("post add course err -- ", err);
             return res.send({success: false, err: err});
         }
     },
@@ -37,18 +37,18 @@ var courseCtrl = {
             if(!req.user){
                 return res.redirect('/auth/login');
             }
-            console.log("edit blog post -- ", req.params.id);
-            var blog = await Blog.findOne({mid: req.params.id});
-            if(req.user.username !== blog.username){
+            //console.log("edit course post -- ", req.params.id);
+            var course = await Course.findOne({cid: req.body.cid});
+            if(req.user.type !== "student"){
                 return res.json({success: false, msg: "Access Denied"});
             }
-            var shtml = domPurify.sanitize(marked.parse(req.body.body));
-            await Blog.updateOne({mid: req.params.id}, {$set: {title: req.body.title, description: req.body.description, body: req.body.body, sanitizedHtml: shtml}});
+            //var shtml = domPurify.sanitize(marked.parse(req.body.body));
+            await Course.updateOne({cid: req.body.cid}, {$set: {name:req.body.name,duration: req.body.duration,description: req.body.description}});
 
-            console.log("Blog updated");
-            return res.redirect('/blog');
+            console.log("Course updated");
+            return res.redirect('/course');
         } catch (err) {
-            console.log("edit blog post err -- ", req.params.id, err);
+            console.log("edit course post err -- ", req.params.id, err);
             return res.send(err);
         }
     },
@@ -58,20 +58,20 @@ var courseCtrl = {
             if(!req.user){
                 return res.redirect('/auth/login');
             }
-            var blog = await Blog.findOne({mid: req.params.id});
-            if(req.user.username !== blog.username){
+            var course = await Course.findOne({cid: req.body.cid});
+            if(req.user.type !== "student"){
                 return res.json({success: false, msg: "Access Denied"});
             }
-            console.log("remove blog post -- ", req.params.id);
-            await Blog.findOneAndDelete({mid: req.params.id});
-            console.log("deleted blog post");
+            console.log("remove course post -- ",req.body.cid);
+            await Course.findOneAndDelete({cid:req.body.cid});
+            console.log("deleted course post");
             res.send({success: true});
         } catch (err) {
-            console.log("remove blog post err -- ", req.params.id, err);
+            console.log("remove course post err -- ", req.body.cid, err);
             return res.send({success: false, err: err});
         }
     }
 }
 
 
-module.exports = blogCtrl;
+module.exports = courseCtrl;

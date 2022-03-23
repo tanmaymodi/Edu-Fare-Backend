@@ -9,7 +9,7 @@ const Schema = mongoose.Schema;
 
 
 const courseData= new Schema({
-    id:{
+    cid:{
         type: String,
         required: [true, "course ID required"]
     },
@@ -19,18 +19,9 @@ const courseData= new Schema({
     },
     duration:{
         type: String,
+        required: true
     },
-    passingCredits:Number,
-    content:Array,
-    quiz:{
-        type:[{
-            question:String,
-            options:Array,
-            ca:String,
-            marks:Number
-        }]
-    }
-
+    description: String
    
 });
 const Course = mongoose.model('Course', courseData);

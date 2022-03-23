@@ -70,7 +70,7 @@ router.route('/expand/:id')
 router.route("/edit/:id")
 .get(auth, async(req, res) => {
     try{
-        if(req.user.type == "Student"){
+        if(req.user.type == "student"){
             return res.status(400).json({ success: false, msg: "Access Denied for students"})
         }
         console.log("edit blog get ", req.params.id);
@@ -89,13 +89,7 @@ router.route("/edit/:id")
 .post(auth, blog.edit);
 
 router.route('/remove/:id')
-.get(auth,(req,res)=>{
-    if(req.user.type == "Student"){
-        return res.status(400).json({ success: false, msg: "Access Denied for students"})
-    }
-    else blog.remove;
-    
-})
+.get(auth, blog.remove)
 
 
 module.exports = router;
