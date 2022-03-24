@@ -21,12 +21,12 @@ router.route('/')
             res.render('dashboard', {
                 isAuthenticated: req.user ? true : false,
                 user: req.user,
-                ped: perData
-
+                ped: perData,
+                nav: true
             });
         } catch (err) {
             console.log("dashboard err -- ", err);
-            return res.send({"success": false, msg: "Server error occurred"});
+            return res.send({"success": false, msg: "Server error occurred",nav:true});
         }
     })
     //ok
@@ -37,7 +37,7 @@ router.route("/edit")
             console.log("editing dash of ----> " + req.user.username);
             var pro = await PersonalData.findOne({ username: req.user.username });
             if (req.user) {
-                res.render("editDash", { pde:pro, isAuthenticated: req.user ? true : false });
+                res.render("editDash", { pde:pro, isAuthenticated: req.user ? true : false ,nav:false});
             } else {
                 res.redirect("/auth/login");
             }

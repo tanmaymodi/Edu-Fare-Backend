@@ -35,15 +35,15 @@
 
 <body>
 
+
+    <% if ( nav == true ) { %>
     <%- include('../partials/navbar.ejs') %>
+    <% } %>
 
-    <div id="main">
+
+    <%- body %>
 
 
-        <main>
-            <%- body %>
-        </main>
-    </div>
 
 
 </body>

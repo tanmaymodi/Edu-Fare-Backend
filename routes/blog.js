@@ -24,7 +24,7 @@ router.route('/')
         page = Math.max(1, page);
         page--;
         blogs = blogs.slice(page*bop, Math.min(total, (page+1)*bop));
-        return res.render('blog', {blogs: blogs, time: time, cuser: req.user.username, page: page+1, last: last, isAuthenticated: req.user ? true : false});
+        return res.render('blog', {blogs: blogs, time: time, cuser: req.user.username, page: page+1, last: last, isAuthenticated: req.user ? true : false,  nav: true});
     } catch (err) {
         console.log("blog home error", err);
         return res.send(err);
@@ -40,10 +40,11 @@ router.route('/add')
         }
         console.log(req.user);
         if(req.user.type == "student"){
-            return res.status(400).json({ success: false, msg: "Access Denied for students"})
+            return res.status(400).json({ success: false, msg: "Access Denied for students",  nav: false})
         }
         return res.render('addblog', {
-            isAuthenticated: req.user ? true : false
+            isAuthenticated: req.user ? true : false,
+            nav: false
         });
     } catch (err) {
         console.log("blog add error", err);
@@ -59,7 +60,7 @@ router.route('/expand/:id')
         var time = parseInt(Date.now() / 60000);
         
         var blog = await Blog.findOne({ mid: req.params.id });
-        res.render("expand", { name: req.user.username, blog: blog, time: time, isAuthenticated: req.user ? true : false });
+        res.render("expand", { name: req.user.username, blog: blog, time: time, isAuthenticated: req.user ? true : false,  nav: false});
     } catch (err){
         console.log("blog expand error");
         return res.send(err);
@@ -71,13 +72,13 @@ router.route("/edit/:id")
 .get(auth, async(req, res) => {
     try{
         if(req.user.type == "student"){
-            return res.status(400).json({ success: false, msg: "Access Denied for students"})
+            return res.status(400).json({ success: false, msg: "Access Denied for students",  nav: false})
         }
         console.log("edit blog get ", req.params.id);
         var y = req.params.id;
         var blog = await Blog.findOne({ mid: req.params.id });
         if (req.user) {
-            res.render("edit", { blog: blog, x: y, isAuthenticated: req.user ? true : false });
+            res.render("edit", { blog: blog, x: y, isAuthenticated: req.user ? true : false, nav:false  });
         } else {
             res.redirect("/auth/login");
         }

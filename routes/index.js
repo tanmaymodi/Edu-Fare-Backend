@@ -9,11 +9,12 @@ router.route('/')
                 return res.redirect('/dashboard');
             }
             return res.render('index1', {
-                isAuthenticated: req.user ? true : false
+                isAuthenticated: req.user ? true : false,
+                nav: true
             });
         } catch (err) {
             console.log("index home err -- ", err);
-            return res.send({'success': false, "msg": "Server error occurred"});
+            return res.send({'success': false, "msg": "Server error occurred",nav:true});
         }
     });
 

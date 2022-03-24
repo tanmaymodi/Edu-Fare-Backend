@@ -11,7 +11,8 @@ router.route('/login')
             return res.redirect('/dashboard');
         }
         return res.render('index', {
-            isAuthenticated: req.user ? true : false
+            isAuthenticated: req.user ? true : false,
+            nav: true
         });
     });
 
@@ -27,7 +28,8 @@ router.route('/register')
             return res.redirect('/dashboard');
         }
         return res.render('register', {
-            isAuthenticated: req.user ? true : false
+            isAuthenticated: req.user ? true : false,
+            nav: true
         });
     });
 

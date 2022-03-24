@@ -1,27 +1,81 @@
-<div class="form-group">
-    <label for="heading">heading</label>
-    <input class="form-control" type="text" name="heading" id="heading" placeholder="Enter Heading" />
-</div>
-<div class="form-group">
-    <label for="cid">Course ID</label>
-    <input class="form-control" type="text" name="cid" id="cid" placeholder="Enter Course ID" />
-</div>
-<div class="form-group">
-    <label for="description">Description</label>
-    <input class="form-control" type="text" name="description" id="description" placeholder="Enter Description" />
-</div>
-<div class="form-group">
-    <label for="explanation">explanation</label>
-    <textarea class="form-control" type="text" name="explanation" id="explanation"></textarea>
-</div>
-<div class="form-group">
-    <label for="images">images</label>
-    <input class="form-control" type="text" name="images" id="images" placeholder="Enter image URL" />
-</div>
-<button class="btn btn-primary" onclick="addblog()">Submit</button>
+<style>
+    button[id=submit],
+    input[type=text],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
 
 
+    button[id=submit],
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    textarea {
+        width: 100%;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[id=submit],
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+
+
+<div>
+    <div class="form-group">
+        <label for="heading">heading</label>
+        <input required class="form-control" type="text" name="heading" id="heading" placeholder="Enter Heading" />
+    </div>
+    <div class="form-group">
+        <label for="cid">Course ID</label>
+        <input required class="form-control" type="text" name="cid" id="cid" placeholder="Enter Course ID" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input required class="form-control" type="text" name="description" id="description"
+            placeholder="Enter Description" />
+    </div>
+    <div class="form-group">
+        <label for="explanation">Explanation</label><br>
+        <textarea required class="form-control" type="text" name="explanation" cols="80" rows="8"
+            id="explanation"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="images">images</label>
+        <input required class="form-control" type="text" name="images" id="images" placeholder="Enter image URL" />
+    </div>
+    <button id="submit" onclick="addblog()">Submit</button>
+
+</div>
 <script>
     var addblog = () => {
         var data = {

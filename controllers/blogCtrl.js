@@ -4,6 +4,7 @@ var { JSDOM } = require("jsdom");
 var domPurify = createDom(new JSDOM().window);
 var marked = require('marked');
 
+
 var blogCtrl = {
     add: async(req, res) => {
         var d = req.body;
@@ -33,6 +34,7 @@ var blogCtrl = {
     },
 
     edit: async(req, res) => {
+        console.log(req.body);
         try{
             if(!req.user){
                 return res.redirect('/auth/login');
@@ -42,8 +44,8 @@ var blogCtrl = {
             if(req.user.username !== blog.username){
                 return res.json({success: false, msg: "Access Denied"});
             }
-            var shtml = domPurify.sanitize(marked.parse(req.body.body));
-            await Blog.updateOne({mid: req.params.id}, {$set: {title: req.body.title, description: req.body.description, body: req.body.body, sanitizedHtml: shtml}});
+           // var shtml = domPurify.sanitize(marked.parse(req.body.body));
+            await Blog.updateOne({mid: req.params.id}, {$set: {heading: req.body.heading,cid:req.body.cid, description: req.body.description, explanation: req.body.explanation, images: req.body.images}});
 
             console.log("Blog updated");
             return res.redirect('/blog');

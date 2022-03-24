@@ -26,7 +26,7 @@ router.route('/')
         page = Math.max(1, page);
         page--;
         courses = courses.slice(page*bop, Math.min(total, (page+1)*bop));
-        return res.render('course', {course: courses, time: time, cuser: req.user.username, page: page+1, last: last, isAuthenticated: req.user ? true : false});
+        return res.render('course', {course: courses, time: time, cuser: req.user.username, page: page+1, last: last, isAuthenticated: req.user ? true : false,nav:true});
     } catch (err) {
         console.log("course home error", err);
         return res.send(err);
@@ -42,10 +42,11 @@ router.route('/add')
         }
         console.log(req.user);
         if(req.user.type == "student"){
-            return res.status(400).json({ success: false, msg: "Access Denied for students"})
+            return res.status(400).json({ success: false, msg: "Access Denied for students",nav:false})
         }
         return res.render('addCourse', {
-            isAuthenticated: req.user ? true : false
+            isAuthenticated: req.user ? true : false,
+            nav:false
         });
     } catch (err) {
         console.log("course add error", err);
@@ -62,7 +63,7 @@ router.route('/expand/:id')
         var id = req.params.id.toString();
         var blogs = await Blog.find({cid: id});
         console.log(blogs);
-        res.render("expandCourse", { course: core, blog:blogs, isAuthenticated: req.user ? true : false });
+        res.render("expandCourse", { course: core, blog:blogs, isAuthenticated: req.user ? true : false,nav:false });
     } catch (err){
         console.log("course expand error");
         return res.send(err);
@@ -75,12 +76,12 @@ router.route("/edit/:id")
     console.log("edit course get ", req.body);
     try{
         if(req.user.type == "student"){
-            return res.status(400).json({ success: false, msg: "Access Denied for students"})
+            return res.status(400).json({ success: false, msg: "Access Denied for students",nav:false})
         }
         
         var blog = await Course.findOne({ cid: req.parama.id });
         if (req.user) {
-            res.render("editCourse", { course: blog, isAuthenticated: req.user ? true : false });
+            res.render("editCourse", { course: blog, isAuthenticated: req.user ? true : false ,nav:false});
         } else {
             res.redirect("/auth/login");
         }
