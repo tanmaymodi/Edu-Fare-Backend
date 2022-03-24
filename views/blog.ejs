@@ -97,8 +97,13 @@
             <div class="col-md-7 text-center heading-section ftco-animate">
                 <span class="subheading">Blog</span>
                 <h2>Recent Blog</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                    live the blind texts. Separated they live in</p>
+                <div class="container d-flex justify-content-center">
+                    <div class="row justify-content-center align-self-center"
+                        style="background-color: rgb(0, 110, 255); padding: 12px 15px 12px 15px; border-radius: 50%;">
+                        <a style="color: blanchedalmond; font-size: 20px;" href="/blog/add" title="Add new Course"><i
+                                class="fa fa-plus"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -121,6 +126,7 @@
                                 </a>
                             </div>
                             <div><%= blogs[i]["username"] %></div>
+                            <div>ID: <%= blogs[i]["cid"] %></div>
                             <% if (cuser == blogs[i]["username"]) {%>
                             <div class="btn btn-warning">
                                 <a href="/blog/edit/<%=blogs[i]['mid']%>">EDIT</a>
