@@ -86,71 +86,65 @@
     }
 </style>
 
-<div class="container">
-    <div class="container d-flex h-10">
-        <div class="row justify-content-center align-self-center"
-            style="background-color: rgb(0, 110, 255); padding: 12px 15px 12px 15px; border-radius: 50%;">
-            <a style="color: blanchedalmond; font-size: 20px;" href="/blog/add" title="Add new Blog"><i
-                    class="fa fa-plus"></i></a>
+
+<!-- _______________________________________________________________ -->
+
+
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">Blog</span>
+                <h2>Recent Blog</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                    live the blind texts. Separated they live in</p>
+            </div>
         </div>
-    </div>
-
-    <div id="allblogs">
-        <% if (blogs.length == 0) { %>
-        <div class="text-center" style="margin-top: 50px; color: rgb(163, 163, 163); font-size: 30px;">
-            No Blogs to Show
-        </div>
-        <% } else { %>
-        <%  for(var i = 0; i < blogs.length; i++) { %>
-        <div class="container blogc" style="margin: 50px auto;padding:20px">
-            <div class="row">
-                <div class="col" style="text-align: left; font-weight: 500; font-size: 30px;">
-
-                    <%= blogs[i]["heading"] %>
-
-
+        <div class="row">
+            <% if (blogs.length == 0) { %>
+            <h1 style="color: black;">no blogs found</h1>
+            <% } else { %>
+            <%  for(var i = 0; i < blogs.length; i++) { %>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/blog/expand/<%=blogs[i]['mid']%>" class="block-20"
+                        style="background-image: url('images/image_1.jpg');">
+                    </a>
+                    <div class="text p-4 d-block">
+                        <div class="meta mb-3">
+                            <div>
+                                <a href="#">
+                                    <% var x= "just now" ;if( time - blogs[i].did >= 525600){ x= (parseInt((time - blogs[i].did )/ 525600))+" years ago"; } else if( time - blogs[i].did >=43200){ x= (parseInt((time - blogs[i].did )/ 43200))+" months ago" } else if( time - blogs[i].did >=10800){ x= (parseInt((time - blogs[i].did )/ 10800))+" weeks ago" }else if( time - blogs[i].did >=1440){ x= (parseInt((time - blogs[i].did )/ 1440))+" days ago" } else if( time - blogs[i].did >=60){ x= (parseInt((time - blogs[i].did )/ 60))+" hours ago" }else if( time - blogs[i].did >=0){ x= (parseInt((time - blogs[i].did )))+" min ago" }   %>
+                                    <% if (x[0] == '0') { x = "Just now" }%>
+                                    <%= x %>
+                                </a>
+                            </div>
+                            <div><%= blogs[i]["username"] %></div>
+                            <% if (cuser == blogs[i]["username"]) {%>
+                            <div class="btn btn-warning">
+                                <a href="/blog/edit/<%=blogs[i]['mid']%>">EDIT</a>
+                            </div>
+                            <% } %>
+                        </div>
+                        <h3 class="heading"><a href="/blog/expand/<%=blogs[i]['mid']%>">
+                                <%= blogs[i]["heading"] %>
+                            </a></h3>
+                        <% if (cuser == blogs[i]["username"]) {%>
+                        <div class="col" style="text-align: right;">
+                            <button id="<%= blogs[i]['mid']%>" onclick="remove(this)" type="submit"
+                                class="btn btn-delpost"><i class="fa fa-trash-o"
+                                    style="font-size:18px;color:red"></i></button>
+                        </div>
+                        <% } %>
+                    </div>
                 </div>
-                <div class="col">
-
-                    <%= blogs[i]['cid'] %>
-
-                </div>
-                <% if (cuser == blogs[i]["username"]) {%>
-                <div class="col" style="text-align: right;">
-
-                    <button id="<%= blogs[i]['mid']%>" onclick="remove(this)" type="submit" class="btn btn-delpost"><i
-                            class="fa fa-trash-o" style="font-size:18px;color:red"></i></button>
-
-                </div>
-                <% } %>
-            </div>
-            <div id="blog-status"> By :
-                <%= blogs[i]["username"] %>
-
-                <% var x= "just now" ;if( time - blogs[i].did >= 525600){ x= (parseInt((time - blogs[i].did )/ 525600))+" years ago"; } else if( time - blogs[i].did >=43200){ x= (parseInt((time - blogs[i].did )/ 43200))+" months ago" } else if( time - blogs[i].did >=10800){ x= (parseInt((time - blogs[i].did )/ 10800))+" weeks ago" }else if( time - blogs[i].did >=1440){ x= (parseInt((time - blogs[i].did )/ 1440))+" days ago" } else if( time - blogs[i].did >=60){ x= (parseInt((time - blogs[i].did )/ 60))+" hours ago" }else if( time - blogs[i].did >=0){ x= (parseInt((time - blogs[i].did )))+" min ago" }   %>
-                <% if (x[0] == '0') { x = "Just now" }%>
-
-                <%= x %>
-            </div>
-
-            <div id="description" style="margin: 5px">
-                <%- blogs[i].description %>
-            </div>
-
-            <% if (cuser == blogs[i]["username"]) {%>
-            <div class="btn btn-warning">
-                <a href="/blog/edit/<%=blogs[i]['mid']%>">EDIT</a>
             </div>
             <% } %>
-            <div class="btn btn-warning">
-                <a href="/blog/expand/<%=blogs[i]['mid']%>">READ MORE</a>
-            </div>
-
+            <% } %>
         </div>
-        <%  }   %>
-
-
     </div>
+
     <nav aria-label="...">
         <ul class="pagination justify-content-center">
 
@@ -177,9 +171,10 @@
         <%= page %> of
         <%= last %>
     </div>
-    <%  }   %>
-</div>
+</section>
 
+
+<!-- _______________________________________________________________ -->
 <script>
     var remove = (e) => {
         console.log(e.id);

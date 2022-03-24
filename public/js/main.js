@@ -41,7 +41,8 @@
 
 	var fullHeight = function() {
 
-		$('.js-fullheight').css('height', $(window).height());
+		//$('.js-fullheight').css('height', $(window).height());
+		$('.js-fullheight').css('height','100vh');
 		$(window).resize(function(){
 			$('.js-fullheight').css('height','100vh');
 		});
