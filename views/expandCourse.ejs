@@ -3,6 +3,23 @@
         max-width: 100%;
         max-height: 100vh;
     }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
 </style>
 
 <!-- <div class="btn btn-warning">
@@ -30,18 +47,26 @@
     </div>
 
     <div>
-        <% for(let i=0;i<blog.length;i++){ %>
-        <div>
-            <div class="row">
-                <div class="col">
+        <table>
+            <tr>
+                <th>Blog Name</th>
+                <th>Description</th>
+                <th>By</th>
+            </tr>
+            <% for(let i=0;i<blog.length;i++){ %>
+            <tr>
+                <td>
                     <a href="/blog/expand/<%= blog[i]['mid'] %>"><%= blog[i]['heading'] %> </a>
-                </div>
-                <div class="col">
+                </td>
+                <td>
                     <%= blog[i]['description'] %>
-                </div>
-            </div>
-        </div>
-        <% } %>
+                </td>
+                <td>
+                    <%= blog[i]['username'] %>
+                </td>
+            </tr>
+            <% } %>
+        </table>
     </div>
 
 
