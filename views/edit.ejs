@@ -1,9 +1,12 @@
 <style>
-    button[id=submit],
+    * {
+        font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
     input[type=text],
     select,
     textarea {
-        width: 100%;
+        width: 70%;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
@@ -12,22 +15,26 @@
         box-sizing: border-box;
     }
 
-
-
-    button[id=submit],
-    input[type=submit] {
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
+    a[id=cancil] {
+        text-decoration: none;
+        text-align: center;
+        width: 20%;
+        background-color: #c4c3c3;
+        color: rgb(2, 2, 2);
         padding: 14px 20px;
         margin: 8px 0;
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        transition: all 1s;
+    }
+
+    a[id=cancil]:hover {
+        background-color: rgb(190, 22, 22);
+        color: white;
     }
 
     textarea {
-        width: 100%;
         background-color: #ffffff;
         color: rgb(0, 0, 0);
         padding: 14px 20px;
@@ -37,69 +44,98 @@
         cursor: pointer;
     }
 
-    button[id=submit],
-    input[type=submit]:hover {
-        background-color: #45a049;
-    }
 
     div {
         border-radius: 5px;
         background-color: #f2f2f2;
         padding: 20px;
     }
+
+    .form-group {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    button[id=submit] {
+        width: 20%;
+        background-color: #3cbe42;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 300ms;
+    }
+
+    button[id=submit]:hover {
+        background-color: #24c22c;
+        color: white;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .container {
+        width: 80vw;
+        margin: auto;
+    }
+
+    label {
+        font-size: 1.2rem;
+    }
 </style>
+
 
 
 <div class="container">
     <h1> Edit Article </h1>
-    <div class="row">
+    <form action="/blog/edit/<%=x%>" method="POST">
+        <div class="form-group">
+            <label for="user">Heading:</label>
+            <input class="form-control" type="text" name="heading" value="<%= blog.heading %>" id="heading">
+        </div>
 
-        <form action="/blog/edit/<%=x%>" method="POST">
-            <div class="form-group">
-                <label for="user">Heading:</label>
-                <input class="form-control" type="text" name="heading" value="<%= blog.heading %>" id="heading">
-            </div>
+        <div class="form-group">
+            <label for="user">Course ID:</label>
+            <input class="form-control" type="text" name="cid" value="<%= blog.cid %>" id="cid">
+        </div>
 
-            <div class="form-group">
-                <label for="user">Course ID:</label>
-                <input class="form-control" type="text" name="cid" value="<%= blog.cid %>" id="cid">
-            </div>
+        <div class="form-group">
+            <label for="user">By:</label>
+            <input class="form-control" type="text" name="username" placeholder="<%= blog.username %>" id="username"
+                disabled>
+        </div>
 
-            <div class="form-group">
-                <label for="user">By:</label>
-                <input class="form-control" type="text" name="username" placeholder="<%= blog.username %>" id="username"
-                    disabled>
-            </div>
+        <div class="form-group">
+            <label for="user">Description:</label>
+            <input class="form-control" type="text" name="description" value="<%= blog.description %>" id="description">
+        </div>
 
-            <div class="form-group">
-                <label for="user">Description:</label>
-                <input class="form-control" type="text" name="description" value="<%= blog.description %>"
-                    id="description">
-            </div>
+        <div class="form-group">
+            <label for="user">Explanation:</label>
+            <textarea class="form-control" type="text" rows="8" cols="5" name="explanation" id="explanation"
+                value="<%= blog.explanation %>"><%= blog.explanation %></textarea>
+        </div>
 
-            <div class="form-group">
-                <label for="user">explanation:</label>
-                <textarea class="form-control" type="text" rows="8" name="explanation" id="explanation"
-                    value="<%= blog.explanation %>"><%= blog.explanation %></textarea>
+        <div class="form-group">
+            <label for="user">Image URL:</label>
+            <input class="form-control" type="text" name="images" value="<%= blog.images %>" id="images">
+        </div>
 
+        <div class="form-group">
+            <label for="user">3D model Ifram link:</label>
+            <input class="form-control" type="text" name="ml" value="<%= blog.ml %>" id="ml">
+        </div>
 
-            </div>
+        <div class="buttons">
+            <a class="btn btn-secondary" id="cancil" href="/"> Cancel</a>
+            <button class="btn btn-primary" id="submit" type="submit"> Submit</button>
+        </div>
 
-            <div class="form-group">
-                <label for="user">Image URL:</label>
-                <input class="form-control" type="text" name="images" value="<%= blog.images %>" id="images">
-            </div>
-
-            <div class="form-group">
-                <label for="user">3D mdoel Ifram link:</label>
-                <input class="form-control" type="text" name="ml" value="<%= blog.ml %>" id="ml">
-            </div>
-
-
-
-            <a class="btn btn-secondary" href="/"> Cancel</a>
-            <button class="btn btn-primary" type="submit"> Submit</button>
-
-        </form>
-    </div>
+    </form>
 </div>
