@@ -10433,12 +10433,12 @@ a {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
-    color: #ee76ad;
+    color: #235789;
 }
 
 a:hover {
     text-decoration: none;
-    color: #ee76ad;
+    color: #235789;
 }
 
 h1,
@@ -10457,7 +10457,7 @@ h5,
 }
 
 .text-primary {
-    color: #ee76ad !important;
+    color: #235789 !important;
 }
 
 .ftco-navbar-light {
@@ -10552,7 +10552,7 @@ h5,
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item.cta.cta-colored span {
-    border-color: #ee76ad;
+    border-color: #235789;
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item.active>a {
@@ -10581,12 +10581,12 @@ h5,
 }
 
 .ftco-navbar-light.scrolled .nav-item.active>a {
-    color: #ee76ad !important;
+    color: #235789 !important;
 }
 
 .ftco-navbar-light.scrolled .nav-item.cta>a {
     color: #fff !important;
-    background: #ee76ad;
+    background: #235789;
     border: none !important;
     padding-top: 0.5rem !important;
     padding-bottom: .5rem !important;
@@ -10604,7 +10604,7 @@ h5,
 }
 
 .ftco-navbar-light.scrolled .nav-item.cta.cta-colored span {
-    border-color: #ee76ad;
+    border-color: #235789;
 }
 
 @media (max-width: 991.98px) {
@@ -10642,7 +10642,7 @@ h5,
 }
 
 .ftco-navbar-light.scrolled .nav-link.active {
-    color: #ee76ad !important;
+    color: #235789 !important;
 }
 
 .ftco-navbar-light.scrolled.awake {
@@ -10684,13 +10684,13 @@ h5,
     bottom: 0;
     content: '';
     opacity: .97;
-    /* background: #ee76ad;
-    background: -moz-linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, #ee76ad), color-stop(100%, #efac78));
-    background: -webkit-linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
-    background: -o-linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
-    background: -ms-linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
-    background: linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
+    /* background: #235789;
+    background: -moz-linear-gradient(45deg, #235789 0%, #efac78 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, #235789), color-stop(100%, #efac78));
+    background: -webkit-linear-gradient(45deg, #235789 0%, #efac78 100%);
+    background: -o-linear-gradient(45deg, #235789 0%, #efac78 100%);
+    background: -ms-linear-gradient(45deg, #235789 0%, #efac78 100%);
+    background: linear-gradient(45deg, #235789 0%, #efac78 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#448ef6', endColorstr='#af05a9', GradientType=1 ); */
     background: rgb(2, 0, 36);
     background: -moz-linear-gradient(38deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
@@ -10883,7 +10883,7 @@ h5,
 }
 
 .bg-primary {
-    background: #ee76ad;
+    background: #235789;
 }
 
 .btn {
@@ -10903,26 +10903,26 @@ h5,
 }
 
 .btn.btn-primary {
-    background: #fce7f1;
-    border: 2px solid #fce7f1;
-    color: #ee76ad;
+    background: #A7DAF7;
+    border: 2px solid #A7DAF7;
+    color: #235789;
 }
 
 .btn.btn-primary:hover {
-    border: 2px solid #ee76ad;
+    border: 2px solid #235789;
     background: transparent;
-    color: #ee76ad;
+    color: #235789;
 }
 
 .btn.btn-primary.btn-outline-primary {
-    border: 2px solid #ee76ad;
+    border: 2px solid #235789;
     background: transparent;
-    color: #ee76ad;
+    color: #235789;
 }
 
 .btn.btn-primary.btn-outline-primary:hover {
     border: 2px solid transparent;
-    background: #ee76ad;
+    background: #235789;
     color: #fff;
 }
 
@@ -10942,7 +10942,7 @@ h5,
 .btn.btn-outline-white:active {
     background: #fff;
     border-color: #fff;
-    color: #ee76ad;
+    color: #235789;
 }
 
 .ftco-section-featured {
@@ -11103,11 +11103,11 @@ h5,
 }
 
 .services .icon.color-1 {
-    background: #fce7f1;
+    background: white;
 }
 
 .services .icon.color-1 span {
-    color: #ee76ad;
+    color: #235789;
 }
 
 .services .icon.color-1:before {
@@ -11116,7 +11116,7 @@ h5,
     height: 0;
     border-style: solid;
     border-width: 0 45px 20px 45px;
-    border-color: transparent transparent #fce7f1 transparent;
+    border-color: transparent transparent white transparent;
 }
 
 .services .icon.color-1:after {
@@ -11125,7 +11125,7 @@ h5,
     height: 0;
     border-style: solid;
     border-width: 20px 45px 0 45px;
-    border-color: #fce7f1 transparent transparent transparent;
+    border-color: white transparent transparent transparent;
 }
 
 .services .icon.color-2 {
@@ -11234,13 +11234,13 @@ h5,
     background-position: center center;
     position: relative;
     padding: 10em 0;
-    background: #ee76ad;
-    background: -moz-linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, #ee76ad), color-stop(100%, #efac78));
-    background: -webkit-linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
-    background: -o-linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
-    background: -ms-linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
-    background: linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
+    background: #235789;
+    background: -moz-linear-gradient(45deg, #235789 0%, #efac78 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, #235789), color-stop(100%, #efac78));
+    background: -webkit-linear-gradient(45deg, #235789 0%, #efac78 100%);
+    background: -o-linear-gradient(45deg, #235789 0%, #efac78 100%);
+    background: -ms-linear-gradient(45deg, #235789 0%, #efac78 100%);
+    background: linear-gradient(45deg, #235789 0%, #efac78 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#448ef6', endColorstr='#af05a9', GradientType=1);
 }
 
@@ -11304,8 +11304,8 @@ h5,
     right: 0;
     bottom: 0;
     content: '';
-    -webkit-box-shadow: 20px 20px 0 0 #fce7f1;
-    box-shadow: 20px 20px 0 0 #fce7f1;
+    -webkit-box-shadow: 20px 20px 0 0 #A7DAF7;
+    box-shadow: 20px 20px 0 0 #A7DAF7;
 }
 
 .block-3 .image.image-2:after {
@@ -11315,8 +11315,8 @@ h5,
     right: 0;
     bottom: 0;
     content: '';
-    -webkit-box-shadow: -20px 20px 0 0 #fce7f1;
-    box-shadow: -20px 20px 0 0 #fce7f1;
+    -webkit-box-shadow: -20px 20px 0 0 #A7DAF7;
+    box-shadow: -20px 20px 0 0 #A7DAF7;
 }
 
 @media (max-width: 767.98px) {
@@ -11570,7 +11570,7 @@ textarea.form-control {
 }
 
 .bg-primary {
-    background: #ee76ad !important;
+    background: #235789 !important;
 }
 
 .ftco-section .ftco-sub-title {
@@ -11595,7 +11595,7 @@ textarea.form-control {
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 0;
-    color: #ee76ad;
+    color: #235789;
 }
 
 .media-custom .media-body .position {
@@ -11624,7 +11624,7 @@ textarea.form-control {
 
 .ftco-footer {
     font-size: 16px;
-    background: #ee76ad;
+    background: #235789;
     padding: 12em 0 8em 0;
 }
 
@@ -11703,7 +11703,7 @@ textarea.form-control {
 
 .footer-small-nav>li a:hover,
 .footer-small-nav>li a:focus {
-    color: #ee76ad;
+    color: #235789;
 }
 
 .media .ftco-icon {
@@ -11711,7 +11711,7 @@ textarea.form-control {
 }
 
 .media .ftco-icon span {
-    color: #ee76ad;
+    color: #235789;
 }
 
 .ftco-media {
@@ -11745,7 +11745,7 @@ textarea.form-control {
 .ftco-media .icon {
     font-size: 50px;
     display: block;
-    color: #ee76ad;
+    color: #235789;
 }
 
 .ftco-media.text-center .ftco-icon {
@@ -11886,7 +11886,7 @@ textarea.form-control {
     right: 0;
     width: 40px;
     height: 40px;
-    background: #fce7f1;
+    background: #A7DAF7;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -11894,7 +11894,7 @@ textarea.form-control {
 }
 
 .testimony-wrap .user-img .quote i {
-    color: #ee76ad;
+    color: #235789;
 }
 
 .testimony-wrap .name {
@@ -11964,7 +11964,7 @@ textarea.form-control {
     display: block;
     font-size: 72px;
     font-weight: bold;
-    color: #ee76ad;
+    color: #235789;
 }
 
 .ftco-counter .ftco-label {
@@ -12023,7 +12023,7 @@ textarea.form-control {
 .blog-entry .text .heading a:hover,
 .blog-entry .text .heading a:focus,
 .blog-entry .text .heading a:active {
-    color: #ee76ad;
+    color: #235789;
 }
 
 .blog-entry .text .meta-chat {
@@ -12184,8 +12184,8 @@ textarea.form-control {
 
 .block-17 form .search-submit {
     width: 100%;
-    background: #ee76ad;
-    border: 2px solid #ee76ad;
+    background: #235789;
+    border: 2px solid #235789;
     color: #fff;
     padding: 12px 10px;
     -webkit-border-radius: 4px;
@@ -12225,20 +12225,20 @@ textarea.form-control {
 
 .block-27 ul li a,
 .block-27 ul li span {
-    color: #ee76ad;
+    color: #235789;
     text-align: center;
     display: inline-block;
     width: 40px;
     height: 40px;
     line-height: 40px;
     border-radius: 50%;
-    border: 1px solid #fce7f1;
+    border: 1px solid #A7DAF7;
 }
 
 .block-27 ul li.active a,
 .block-27 ul li.active span {
-    background: #fce7f1;
-    color: #ee76ad;
+    background: #A7DAF7;
+    color: #235789;
     border: 1px solid transparent;
 }
 
@@ -12343,9 +12343,9 @@ textarea.form-control {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
-    background: #ee76ad;
+    background: #235789;
     color: #fff;
-    border: 1px solid #ee76ad;
+    border: 1px solid #235789;
 }
 
 .block-8 .accordion-item .heading>a[aria-expanded="false"]:before {
@@ -12433,7 +12433,7 @@ textarea.form-control {
 }
 
 .block-4 .nonloop .owl-dots .owl-dot.active {
-    background: #ee76ad;
+    background: #235789;
 }
 
 .contact-section {
@@ -12484,7 +12484,7 @@ textarea.form-control {
 .block-21 .text .heading a:hover,
 .block-21 .text .heading a:active,
 .block-21 .text .heading a:focus {
-    color: #ee76ad;
+    color: #235789;
 }
 
 .block-21 .text .meta>div {
@@ -12536,7 +12536,7 @@ textarea.form-control {
     margin: 0;
     border-radius: 50% !important;
     font-size: 16px;
-    background: #ee76ad;
+    background: #235789;
     color: #fff;
 }
 
