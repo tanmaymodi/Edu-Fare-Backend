@@ -4,8 +4,17 @@
         max-height: 100vh;
     }
 
-    img,
+
+    img {
+        width: 50%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     iframe {
+
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -22,7 +31,7 @@
 
 
     <h1 style="text-align: center;">
-        <%= blog["heading"] %>
+        <%= blog.heading %>
     </h1>
 
     <div id="blog-status" style="text-align: right;"> By :
