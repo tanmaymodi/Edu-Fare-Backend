@@ -15,8 +15,10 @@
         box-sizing: border-box;
     }
 
-    button[id=cancil] {
-        width: 70%;
+    a[id=cancil] {
+        text-decoration: none;
+        text-align: center;
+        width: 20%;
         background-color: #c4c3c3;
         color: rgb(2, 2, 2);
         padding: 14px 20px;
@@ -27,13 +29,12 @@
         transition: all 1s;
     }
 
-    button[id=cancil]:hover {
+    a[id=cancil]:hover {
         background-color: rgb(190, 22, 22);
         color: white;
     }
 
     textarea {
-        width: 100%;
         background-color: #ffffff;
         color: rgb(0, 0, 0);
         padding: 14px 20px;
@@ -51,14 +52,13 @@
     }
 
     .form-group {
-        width: 60vw;
         display: flex;
         justify-content: space-between;
         padding: 10px;
     }
 
     button[id=submit] {
-        width: 70%;
+        width: 20%;
         background-color: #3cbe42;
         color: black;
         padding: 14px 20px;
@@ -68,10 +68,21 @@
         cursor: pointer;
         transition: all 300ms;
     }
-    
+
     button[id=submit]:hover {
         background-color: #24c22c;
         color: white;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .container {
+        width: 80vw;
+        margin: auto;
     }
 
     label {
@@ -118,9 +129,11 @@
                 <label for="subjects">Subjects:</label>
                 <input class="form-control" type="text" name="subjects" value="<%= pde.subjects %>" id="subjects">
             </div>
-
-            <button class="btn btn-secondary" id="cancil" href="/"> Cancel</button>
-            <button class="btn btn-primary" id="submit" type="submit"> Submit</button>
+            
+            <div class="buttons">
+                <a class="btn btn-secondary" id="cancil" href="/"> Cancel</a>
+                <button class="btn btn-primary" id="submit" type="submit"> Submit</button>
+            </div>
 
         </form>
     </div>
