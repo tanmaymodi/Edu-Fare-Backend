@@ -87,7 +87,20 @@
     }
 </style>
 
+<div class="hero-wrap js-fullheight">
+    <div class="overlay"></div>
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
 
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+                    <span style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Availabe Courses</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
 
 <section class="ftco-section bg-light">
     <div class="container">
@@ -107,15 +120,16 @@
         <div class="row">
 
             <% if (course.length == 0) { %>
-            <div class="text-center" style="margin-top: 50px; color: rgb(163, 163, 163); font-size: 30px;">
-                No Courses to Show
-            </div>
+            <h1
+                style="color: black; text-align: center; margin: auto; width: 40%; padding: 50px; border:5px solid #ee76ad; background-color: #ee76ad; color: white;">
+                No Courses Found
+            </h1>
             <% } else { %>
             <%  for(var i = 0; i < course.length; i++) { %>
             <div class="col-md-4 ftco-animate">
                 <div class="blog-entry">
                     <a href="/course/expand/<%= course[i]['cid'] %>" class="block-20"
-                        style="background-image: url('images/image_1.jpg');">
+                        style="background-image: url(<%= course[i]['banner'] %>);">
                     </a>
                     <div class="text p-4 d-block">
                         <div class="meta mb-3">
@@ -133,6 +147,7 @@
             <%  }   %>
         </div>
     </div>
+    <hr>
     <nav aria-label="...">
         <ul class="pagination justify-content-center">
 

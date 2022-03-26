@@ -31,6 +31,7 @@ const blogSchema = new Schema({
         type: String,
         required: true
     },
+    ml:String,
     sanitizedHtml: String,
     mid: String,
     did: Number,

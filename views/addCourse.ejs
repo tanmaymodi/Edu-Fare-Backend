@@ -60,12 +60,17 @@
 </div>
 
 <div class="form-group">
-    <label for="description">duratino</label>
+    <label for="description">Duration</label>
     <input class="form-control" type="text" name="duration" id="duration" placeholder="Enter duratino" />
 </div>
 <div class="form-group">
-    <label for="explanation">description</label>
+    <label for="explanation">Description</label>
     <textarea class="form-control" type="text" name="description" id="description" rows="10"></textarea>
+</div>
+
+<div class="form-group">
+    <label for="description">Course Banner Link</label>
+    <input class="form-control" type="text" name="banner" id="banner" placeholder="Enter image link" />
 </div>
 <button class="btn btn-primary" onclick="addblog()">Submit</button>
 
@@ -78,7 +83,7 @@
             name: document.getElementById('name').value,
             duration: document.getElementById('duration').value,
             description: document.getElementById('description').value,
-
+            banner: document.getElementById('banner').value,
         };
         console.log(document.getElementById('description').textContent);
         console.log(data);

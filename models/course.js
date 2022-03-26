@@ -21,7 +21,11 @@ const courseData= new Schema({
         type: String,
         required: true
     },
-    description: String
+    
+    description: String,
+    banner: {
+        type: String
+    }
    
 });
 const Course = mongoose.model('Course', courseData);

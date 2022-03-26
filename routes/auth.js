@@ -29,7 +29,7 @@ router.route('/register')
         }
         return res.render('register', {
             isAuthenticated: req.user ? true : false,
-            nav: true
+            nav: false
         });
     });
 

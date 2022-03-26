@@ -12,6 +12,8 @@ var blogCtrl = {
         try{
            // console.log("blog add -- ", req.body, req.user);
             var shtml = domPurify.sanitize(marked.parse(req.body.explanation));
+            //var sml = domPurify.sanitize(marked.parse(req.body.ml));
+            
             //console.log(shtml);
             var blog = new Blog({
                 cid: req.body.cid,
@@ -20,6 +22,7 @@ var blogCtrl = {
                 explanation: req.body.explanation,
                 images: req.body.images,
                 username: req.user.username,
+                ml:req.body.ml,
                 sanitizedHtml: shtml,
                 mid: req.user.username + "-" + (parseInt(Date.now() / 60000).toString()),
                 did: parseInt(Date.now() / 60000)
@@ -44,9 +47,8 @@ var blogCtrl = {
             if(req.user.username !== blog.username){
                 return res.json({success: false, msg: "Access Denied"});
             }
-           // var shtml = domPurify.sanitize(marked.parse(req.body.body));
-            await Blog.updateOne({mid: req.params.id}, {$set: {heading: req.body.heading,cid:req.body.cid, description: req.body.description, explanation: req.body.explanation, images: req.body.images}});
-
+            //var sml = domPurify.sanitize(marked.parse(req.body.ml));
+            await Blog.updateOne({mid: req.params.id}, {$set: {heading: req.body.heading,cid:req.body.cid, description: req.body.description, explanation: req.body.explanation, images: req.body.images,ml:req.body.ml}});
             console.log("Blog updated");
             return res.redirect('/blog');
         } catch (err) {

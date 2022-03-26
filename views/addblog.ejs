@@ -73,6 +73,10 @@
         <label for="images">images</label>
         <input required class="form-control" type="text" name="images" id="images" placeholder="Enter image URL" />
     </div>
+    <div class="form-group">
+        <label for="images">3D model frame link</label>
+        <input required class="form-control" type="text" name="ml" id="ml" placeholder="Enter model URL" />
+    </div>
     <button id="submit" onclick="addblog()">Submit</button>
 
 </div>
@@ -84,7 +88,7 @@
             description: document.getElementById('description').value,
             explanation: document.getElementById('explanation').value,
             images: document.getElementById('images').value,
-
+            ml: document.getElementById('ml').value,
         };
         console.log(data);
         $.ajax({

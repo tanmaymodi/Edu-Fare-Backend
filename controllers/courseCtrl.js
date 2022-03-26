@@ -22,6 +22,7 @@ var courseCtrl = {
                 name: req.body.name,
                 duration: req.body.duration,
                 description: req.body.description,  
+                banner: req.body.banner,
             });
             console.log("new course -- ", course);
             await course.save();
@@ -43,7 +44,7 @@ var courseCtrl = {
                 return res.json({success: false, msg: "Access Denied"});
             }
             //var shtml = domPurify.sanitize(marked.parse(req.body.body));
-            await Course.updateOne({cid: req.body.cid}, {$set: {name:req.body.name,duration: req.body.duration,description: req.body.description}});
+            await Course.updateOne({cid: req.body.cid}, {$set: {name:req.body.name,duration: req.body.duration,description: req.body.description,banner: req.body.banner}});
 
             console.log("Course updated");
             return res.redirect('/course');
