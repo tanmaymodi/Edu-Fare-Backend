@@ -28,6 +28,7 @@
         "mongoose": "^6.2.3",
         "morgan": "^1.10.0",
         "nodemon": "^2.0.15",
+        "package.json": "^2.0.1",
         "toast-notification-alert": "^1.0.5"
     }
 }
