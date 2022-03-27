@@ -6,15 +6,14 @@ Deplyed At: https://edu-fare.herokuapp.com/
 </div>
 
 ### Instructions to run on local machine (Windows)
-1. 
+
     git clone https://github.com/tanmaymodi/Edu-Fare-Backend
-2. 
     git cd Edu-Fare-Backend
-3.
     npm i package.json
-(if it shows vulnerability or error) run command 
+    
+(if it shows vulnerability or error) run command)
+
     npm audit fix
-4.
     npm start
 
 ### Dependencies
@@ -24,7 +23,6 @@ Deplyed At: https://edu-fare.herokuapp.com/
 3. MongoDB
 4. JsonWebToken (JWT)
 5. Dompurify
-6. 
 **Frontend**
 1. Extend JavaScript (EJS)
 2. Bootstrap 4
