@@ -26,6 +26,7 @@ Run command
 3. MongoDB
 4. JsonWebToken (JWT)
 5. Dompurify
+
 **Frontend**
 1. Extend JavaScript (EJS)
 2. Bootstrap 4
