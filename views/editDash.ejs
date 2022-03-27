@@ -106,14 +106,25 @@
     }
 
     @media only screen and (max-width: 400px) {
+        body {
+            width: 100vw !important;
+        }
+
         div {
             display: flex;
             flex-direction: column;
         }
 
         .container {
-            width: 100vw;
+            margin: auto;
+            width: 80vw;
             text-align: left;
+        }
+
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
         }
     }
 </style>
@@ -121,49 +132,47 @@
 <div class="container">
     <h1> Hello, <%= pde.username %>
     </h1>
-    <div class="row">
 
-        <form action="/dashboard/edit/" method="POST">
+    <form action="/dashboard/edit/" method="POST">
 
-            <div class="form-group">
-                <label for="type">Type:</label>
-                <input class="form-control" type="text" name="type" placeholder="<%= pde.type %>" id="type" disabled>
-            </div>
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <input class="form-control" type="text" name="type" placeholder="<%= pde.type %>" id="type" disabled>
+        </div>
 
-            <div class="form-group">
-                <label for="Username">Name:</label>
-                <input class="form-control" type="text" name="username" placeholder="<%= pde.username %>" id="username"
-                    disabled>
-            </div>
-
-
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <input class="form-control" type="text" name="address" value="<%= pde.address %>" id="address">
-            </div>
-
-            <div class="form-group">
-                <label for="gender">Gender:</label>
-                <input class="form-control" type="text" name="gender" value="<%= pde.gender %>" id="gender">
-            </div>
+        <div class="form-group">
+            <label for="Username">Name:</label>
+            <input class="form-control" type="text" name="username" placeholder="<%= pde.username %>" id="username"
+                disabled>
+        </div>
 
 
-            <div class="form-group">
-                <label for="school">School Name:</label>
-                <input class="form-control" type="text" name="school" value="<%= pde.school %>" id="cid">
-            </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input class="form-control" type="text" name="address" value="<%= pde.address %>" id="address">
+        </div>
 
-            <div class="form-group">
-                <label for="subjects">Subjects:</label>
-                <input class="form-control" type="text" name="subjects" value="<%= pde.subjects %>" id="subjects">
-            </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input class="form-control" type="text" name="gender" value="<%= pde.gender %>" id="gender">
+        </div>
 
-            <div class="buttons">
-                <a class="btn btn-secondary" id="cancil" href="/"> Cancel</a>
-                <!-- <a class="btn btn-primary" id="accept" href="/"> Submit</a> -->
-                <button class="btn btn-primary" id="submit" type="submit"> Submit</button>
-            </div>
 
-        </form>
-    </div>
+        <div class="form-group">
+            <label for="school">School Name:</label>
+            <input class="form-control" type="text" name="school" value="<%= pde.school %>" id="cid">
+        </div>
+
+        <div class="form-group">
+            <label for="subjects">Subjects:</label>
+            <input class="form-control" type="text" name="subjects" value="<%= pde.subjects %>" id="subjects">
+        </div>
+
+        <div class="buttons">
+            <a class="btn btn-secondary" id="cancil" href="/"> Cancel</a>
+            <!-- <a class="btn btn-primary" id="accept" href="/"> Submit</a> -->
+            <button class="btn btn-primary" id="submit" type="submit"> Submit</button>
+        </div>
+
+    </form>
 </div>
