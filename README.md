@@ -6,11 +6,16 @@ Deplyed At: https://edu-fare.herokuapp.com/
 </div>
 
 ### Instructions to run on local machine (Windows)
-1. git clone https://github.com/tanmaymodi/Edu-Fare-Backend
-2. git cd Edu-Fare-Backend
-3. npm i package.json
-(if it shows vulnerability or error) run command "npm audit fix"
-4. npm start
+1. 
+    git clone https://github.com/tanmaymodi/Edu-Fare-Backend
+2. 
+    git cd Edu-Fare-Backend
+3.
+    npm i package.json
+(if it shows vulnerability or error) run command 
+    npm audit fix
+4.
+    npm start
 
 ### Dependencies
 **Backend**
