@@ -29,6 +29,20 @@
         transition: all 1s;
     }
 
+    a[id=accept] {
+        text-decoration: none;
+        text-align: center;
+        width: 20%;
+        background-color: #008f2b;
+        color: rgb(255, 255, 255);
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 1s;
+    }
+
     a[id=cancil]:hover {
         background-color: rgb(190, 22, 22);
         color: white;
@@ -131,10 +145,11 @@
                 <label for="subjects">Subjects:</label>
                 <input class="form-control" type="text" name="subjects" value="<%= pde.subjects %>" id="subjects">
             </div>
-            
+
             <div class="buttons">
                 <a class="btn btn-secondary" id="cancil" href="/"> Cancel</a>
-                <button class="btn btn-primary" id="submit" type="submit"> Submit</button>
+                <a class="btn btn-primary" id="accept" href="/"> Submit</a>
+                <!-- <button class="btn btn-primary" id="submit" type="submit"> Submit</button> -->
             </div>
 
         </form>
