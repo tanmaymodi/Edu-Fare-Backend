@@ -14,6 +14,9 @@ Deplyed At: https://edu-fare.herokuapp.com/
 (if it shows vulnerability or error) run command)
 
     npm audit fix
+
+Run command 
+
     npm start
 
 ### Dependencies
