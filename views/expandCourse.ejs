@@ -11,11 +11,11 @@
         width: 100%;
     }
 
-    table a{
+    table a {
         text-decoration: none;
     }
 
-    table a:hover{
+    table a:hover {
         color: black;
     }
 
@@ -30,12 +30,14 @@
         background-color: #dddddd;
     }
 
-    .container{
+    .container {
+        background-color: rgb(253, 240, 220);
+        border-radius: 1rem;
         width: 90vw;
     }
 </style>
 
-<div class="container" style="margin: 50px auto;background-color: rgb(253, 240, 220);padding:20px">
+<div class="container" style="margin: 50px auto;padding:20px">
     <h1>
         <%= course.name %>
     </h1>
@@ -59,18 +61,20 @@
                 <th>By</th>
             </tr>
             <% for(let i=0;i<blog.length;i++){ %>
-            <tr>
-                <td>
-                    <a href="/blog/expand/<%= blog[i]['mid'] %>"><%= blog[i]['heading'] %> </a>
-                </td>
-                <td>
-                    <%= blog[i]['description'] %>
-                </td>
-                <td>
-                    <%= blog[i]['username'] %>
-                </td>
-            </tr>
-            <% } %>
+                <tr>
+                    <td>
+                        <a href="/blog/expand/<%= blog[i]['mid'] %>">
+                            <%= blog[i]['heading'] %>
+                        </a>
+                    </td>
+                    <td>
+                        <%= blog[i]['description'] %>
+                    </td>
+                    <td>
+                        <%= blog[i]['username'] %>
+                    </td>
+                </tr>
+                <% } %>
         </table>
     </div>
 
