@@ -11,7 +11,7 @@ Deplyed At: https://edu-fare.herokuapp.com/
     git cd Edu-Fare-Backend
     npm i package.json
     
-(if it shows vulnerability or error) run command)
+(if it shows vulnerability or error run command)
 
     npm audit fix
 
