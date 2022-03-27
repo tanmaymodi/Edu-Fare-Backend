@@ -76,7 +76,7 @@ const authCtrl = {
             await pdS.save();
             res.status(200).json({
                 success: true,
-                msg: 'Register Success!',
+                msg: 'Register Success! click here to go to dashboard',
                 access_token,
                 refresh_token,
                 user: {
