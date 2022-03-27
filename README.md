@@ -1,5 +1,6 @@
 # Edu-Fare-Backend
 Deplyed At: https://edu-fare.herokuapp.com/
+Key for registration: iloveem
 
 <div align="center">
     <img src="https://he-s3.s3.amazonaws.com/media/sprint/ion-a-thon-10/team/1362904/bf36388screenshot__141_.png" width="80%"/>
