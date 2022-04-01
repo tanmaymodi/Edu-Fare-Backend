@@ -9,6 +9,7 @@ const dotenv = require('dotenv');
 const expressLayouts = require('express-ejs-layouts');
 
 
+
 dotenv.config();
 
 const connectDB = require('./config/db');
